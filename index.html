@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <style>
+        body {
+            font-size: 3vw;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        #container {
+            text-align: center;
+        }
+        
+        input {
+            font-size: 2vw;
+            border-radius: 0.5vw;
+            padding: 0.5vw;
+        }
+        
+        button {
+            font-size: 2vw;
+            border-radius: 0.5vw;
+            padding: 0.3vw 0.5vw;
+        }
+        
+        #loginBtn {
+            background-color: lightgreen
+        }
+        
+        #registerBtn {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div>Log in</div>
+        <input type="text" id="username" name="username" placeholder="Username"><br>
+        <input type="password" id="password" name="password" placeholder="Password"><br>
+        <button onclick="login()" id="loginBtn">Login</button>
+        <button onclick="redirectToRegister()" id="registerBtn">Register</button>
+    </div>
+
+
+    <script>
+        function login() {
+            // Access input tags
+            var username = document.getElementById('username');
+            var password = document.getElementById('password');
+
+            // Get values from input tags
+            var user = username.value;
+            var pass = password.value;
+
+            if (localStorage.getItem(user) === null || localStorage.getItem(user) !== pass) {
+                alert("Account doesn't exist or wrong password");
+            } else if (user === "admin" && localStorage.getItem(user) == "admin") {
+                localStorage.setItem("user_login", user);
+                window.location.href = 'admin.html';
+            } else {
+                localStorage.setItem("user_login", user);
+                window.location.href = 'user.html';
+            }
+        }
+
+        function redirectToRegister() {
+            window.location.href = 'register.html';
+        }
+
+        window.onload = function() {
+            localStorage.setItem("admin", "admin");
+        };
+    </script>
+</body>
+
+</html>

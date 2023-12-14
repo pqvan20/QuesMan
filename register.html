@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    <style>
+        body {
+            font-size: 3vw;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        #container {
+            text-align: center;
+        }
+        
+        input {
+            font-size: 2vw;
+            border-radius: 0.5vw;
+            padding: 0.5vw;
+        }
+        
+        button {
+            font-size: 2vw;
+            border-radius: 0.5vw;
+            padding: 0.3vw 0.5vw;
+        }
+        
+        #submitBtn {
+            background-color: lightgreen
+        }
+        
+        #registerBtn {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div>Register</div>
+        <input type="text" id="username" placeholder="Username" required><br>
+
+        <input type="password" id="password" placeholder="Password" required><br>
+
+        <input type="password" id="re_password" placeholder="Re-type password" required><br>
+
+        <button onclick="register()" id="submitBtn">Submit</button>
+        <button onclick="backLogin()" id="registerBtn">Back</button>
+    </div>
+
+    <script>
+        function register() {
+            // Access the input elements
+            var connectUsername = document.getElementById('username');
+            var connectPassword = document.getElementById('password');
+            var connectRePassword = document.getElementById('re_password');
+
+            var form = document.querySelector('form');
+
+            // Get the values from the input elements
+            var user = connectUsername.value;
+            var pass = connectPassword.value;
+            var re_pass = connectRePassword.value;
+            console.log(user)
+            console.log(pass.length)
+            console.log(re_pass)
+
+            if (user != "" && pass != "" && re_pass != "") {
+                if (pass !== re_pass) {
+                    alert("No match password");
+                } else if (localStorage.getItem(user) !== null) {
+                    alert("Account exists");
+                } else {
+                    localStorage.setItem(user, pass);
+                    var emptyJson = []
+                    var emptyJsonString = JSON.stringify(emptyJson);
+                    localStorage.setItem(user + "_questions", emptyJsonString);
+                    alert("Register successfully!");
+                    window.location.href = 'index.html';
+                }
+            } else {
+                alert("Please, fill all the input boxes");
+            }
+
+        }
+
+        function backLogin() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>
