@@ -412,39 +412,44 @@
                         statusCell.style.border = '1px solid black';
 
                         // Create the button to change the status
-                        var changeStatusButton = document.createElement('button');
-                        changeStatusButton.className = "statusBtn"
-                        changeStatusButton.textContent = 'Change Status';
-                        changeStatusButton.dataset.key = key;
-                        changeStatusButton.dataset.index = index;
-                        changeStatusButton.addEventListener('click', changeStatus);
+                        if (userLogin == "admin") {
+                            var changeStatusButton = document.createElement('button');
+                            changeStatusButton.className = "statusBtn"
+                            changeStatusButton.textContent = 'Change Status';
+                            changeStatusButton.dataset.key = key;
+                            changeStatusButton.dataset.index = index;
+                            changeStatusButton.addEventListener('click', changeStatus);
 
-                        statusCell.appendChild(changeStatusButton);
-
+                            statusCell.appendChild(changeStatusButton);
+                        }
                         tableRow.appendChild(statusCell);
 
                         var editCell = document.createElement('td');
 
-                        var editButton = document.createElement('button');
-                        editButton.textContent = 'Edit';
-                        editButton.className = "editBtn"
-                        editButton.dataset.key = key;
-                        editButton.dataset.index = index;
-                        editButton.addEventListener('click', editQuestion);
+                        if (userLogin == questionObj.createdBy && questionObj.status == "Not Approved") {
+                            var editButton = document.createElement('button');
+                            editButton.textContent = 'Edit';
+                            editButton.className = "editBtn"
+                            editButton.dataset.key = key;
+                            editButton.dataset.index = index;
+                            editButton.addEventListener('click', editQuestion);
 
-                        editCell.appendChild(editButton);
+                            editCell.appendChild(editButton);
+                        } else editCell.innerHTML = "#"
+
                         editCell.style.border = '1px solid black';
 
                         var deleteCell = document.createElement('td');
+                        if (userLogin == questionObj.createdBy && questionObj.status == "Not Approved") {
+                            var deleteButton = document.createElement('button');
+                            deleteButton.textContent = 'Delete';
+                            deleteButton.className = "deleteBtn"
+                            deleteButton.dataset.key = key;
+                            deleteButton.dataset.index = index;
+                            deleteButton.addEventListener('click', deleteQuestion);
 
-                        var deleteButton = document.createElement('button');
-                        deleteButton.textContent = 'Delete';
-                        deleteButton.className = "deleteBtn"
-                        deleteButton.dataset.key = key;
-                        deleteButton.dataset.index = index;
-                        deleteButton.addEventListener('click', deleteQuestion);
-
-                        deleteCell.appendChild(deleteButton);
+                            deleteCell.appendChild(deleteButton);
+                        } else deleteCell.innerHTML = "#"
                         deleteCell.style.border = '1px solid black';
 
                         tableRow.appendChild(questionCell);
