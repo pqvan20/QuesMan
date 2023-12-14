@@ -249,7 +249,7 @@
             var updatedJsonString = JSON.stringify(existingQuestionsArray);
 
             localStorage.setItem(userLogin + '_questions', updatedJsonString);
-            listQuestion()
+            window.location.href = 'admin.html';
         }
 
         window.onload = function() {
