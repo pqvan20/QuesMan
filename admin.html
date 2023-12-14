@@ -426,7 +426,7 @@
 
                         var editCell = document.createElement('td');
 
-                        if (userLogin == questionObj.createdBy && questionObj.status == "Not Approved") {
+                        if ((userLogin == questionObj.createdBy && questionObj.status == "Not Approved") || userLogin == "admin") {
                             var editButton = document.createElement('button');
                             editButton.textContent = 'Edit';
                             editButton.className = "editBtn"
@@ -440,7 +440,7 @@
                         editCell.style.border = '1px solid black';
 
                         var deleteCell = document.createElement('td');
-                        if (userLogin == questionObj.createdBy && questionObj.status == "Not Approved") {
+                        if ((userLogin == questionObj.createdBy && questionObj.status == "Not Approved") || userLogin == "admin") {
                             var deleteButton = document.createElement('button');
                             deleteButton.textContent = 'Delete';
                             deleteButton.className = "deleteBtn"
