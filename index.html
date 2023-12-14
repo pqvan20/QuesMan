@@ -74,8 +74,10 @@
         }
 
         window.onload = function() {
-            localStorage.setItem("admin", "admin");
-            localStorage.setItem("admin_questions", "[]");
+            if (localStorage.getItem("admin_questions") == null) {
+                localStorage.setItem("admin", "admin");
+                localStorage.setItem("admin_questions", "[]");
+            }
 
         };
     </script>
