@@ -43,15 +43,13 @@
 
             connectHiAccount.textContent = "Hi, " + userLogin
 
-            checkValidUser()
+            setTimeout(function() {
+                if (userLogin == null) {
+                    alert("Please, log in");
+                    window.location.href = 'index.html';
+                }
+            }, 10000);
         };
-
-        function checkValidUser() {
-            if (userLogin == null) {
-                alert("Please, log in");
-                window.location.href = 'index.html';
-            }
-        }
 
         function logout() {
             localStorage.removeItem("user_login");
