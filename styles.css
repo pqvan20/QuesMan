@@ -1,0 +1,117 @@
+/* question.html */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    font-size: 1vw;
+    border-radius: 0.5vw;
+    padding: 0.5vw;
+    margin: 0.5vw;
+}
+
+button {
+    font-size: 1vw;
+    border-radius: 0.5vw;
+    padding: 0.3vw 0.5vw;
+    margin: 0.5vw;
+}
+
+table {
+    font-size: 1vw;
+}
+
+#createQuestion {
+    text-align: center;
+}
+
+#output {
+    text-align: center;
+    margin: auto;
+    display: inline;
+}
+
+#dataContainer {
+    display: flex;
+    justify-content: center;
+}
+
+td,
+th {
+    padding: 0.5vw;
+    word-wrap: break-word;
+}
+
+.editBtn {
+    background-color: lightblue;
+}
+
+.deleteBtn {
+    background-color: lightcoral;
+}
+
+.statusBtn {
+    background-color: lightgoldenrodyellow;
+}
+
+#questionBtn {
+    background-color: lightgreen;
+}
+
+#questionFormBtn {
+    background-color: #cce7c9;
+}
+
+#clearBtn {
+    background-color: lightsalmon;
+}
+
+#menuBar {
+    background-color: lightsteelblue;
+    padding: 1vw;
+}
+
+.menu-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10vw, 1fr));
+    gap: 10px;
+    background-color: lightgray;
+}
+
+.btn {
+    font-size: 1.5vw;
+    cursor: pointer;
+    padding: 1vw;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #c0c0c0;
+}
+
+#hiAccount {
+    font-size: 1.5vw;
+    padding: 1vw;
+}
+
+
+/* home.html */
+
+.image-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    text-align: center;
+}
+
+.image {
+    width: 20vw;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

@@ -60,12 +60,9 @@
 
             if (localStorage.getItem(user) === null || localStorage.getItem(user) !== pass) {
                 alert("Account doesn't exist or wrong password");
-            } else if (user === "admin" && localStorage.getItem(user) == "admin") {
-                localStorage.setItem("user_login", user);
-                window.location.href = 'admin.html';
             } else {
                 localStorage.setItem("user_login", user);
-                window.location.href = 'user.html';
+                window.location.href = 'home.html';
             }
         }
 
@@ -78,7 +75,6 @@
                 localStorage.setItem("admin", "admin");
                 localStorage.setItem("admin_questions", "[]");
             }
-
         };
     </script>
 </body>

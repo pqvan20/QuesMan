@@ -3,12 +3,58 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
+    <div class="menu-bar">
+        <span id="hiAccount">Hi</span>
+        <a href="home.html" class="btn">Home</a>
+        <a href="..." class="btn">Contact</a>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span onclick="logout()" id="logoutBtn" class="btn">Logout</span>
+    </div>
+    <br>
+    <div class="image-container">
+        <div class="imageCell">
+            <img class="image" src="image/html.png" alt="html"><br><br>
+            <div>HTML (Hypertext Markup Language) <br>Defines the structure and content of web pages.</div>
+        </div>
+        <div class="imageCell">
+            <a href="question.html"><img class="image" src="image/css.png" alt="css"></a><br><br>
+            <div>CSS (Cascading Style Sheets) <br>Styles and visually enhances the presentation of HTML elements.</div>
+        </div>
+        <div class="imageCell">
+            <img class="image" src="image/js.png" alt="js"><br><br>
+            <div>JS (JavaScript) <br>Adds interactivity and dynamic behavior to web pages.</div>
+        </div>
+    </div>
 
+    <script>
+        window.onload = function() {
+            if (userLogin == null) {
+                alert("Please, log in");
+                window.location.href = 'index.html';
+            }
+            var userLogin = localStorage.getItem('user_login')
+            var connectHiAccount = document.getElementById('hiAccount')
+
+            connectHiAccount.textContent = "Hi, " + userLogin
+
+            listQuestion()
+        };
+
+        function logout() {
+            localStorage.removeItem("user_login");
+            window.location.href = 'index.html';
+        }
+    </script>
 </body>
 
 </html>
