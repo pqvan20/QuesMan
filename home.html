@@ -42,10 +42,13 @@
             var connectHiAccount = document.getElementById('hiAccount')
 
             connectHiAccount.textContent = "Hi, " + userLogin
-            if (userLogin == null) {
-                alert("Please, log in");
-                window.location.href = 'index.html';
-            }
+
+            wait(2000).then(function() {
+                if (userLogin == null) {
+                    alert("Please, log in");
+                    window.location.href = 'index.html';
+                }
+            })
         };
 
         function logout() {
