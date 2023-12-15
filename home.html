@@ -43,12 +43,14 @@
 
             connectHiAccount.textContent = "Hi, " + userLogin
 
+            setTimeout(() => {
+                console.log("One second has passed!");
+            }, 1000); // 1000 milliseconds = 1 second
+
             if (userLogin == null) {
                 alert("Please, log in");
                 window.location.href = 'index.html';
             }
-
-            listQuestion()
         };
 
         function logout() {
